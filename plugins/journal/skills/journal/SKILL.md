@@ -14,7 +14,7 @@ Do not infer any of these values from memory. If the block above says NOT CONFIG
 
 ## Where the journal lives
 
-- **MCP server**: the Notion MCP server, aliased `notion`. Tool names below are its short names.
+- **MCP server**: the one named in the Today block. Tool names below are its short names; never use a different Notion server.
 - **Data source**: the "Data source id" above. Its URL form is `collection://<id>`. "The data source" below means this.
 
 ## Entry shape

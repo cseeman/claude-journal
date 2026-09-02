@@ -35,7 +35,7 @@ PROJ-7003 · PR 5670 · `proj-7003-import-selection`
   claude mcp add --transport http notion https://mcp.notion.com/mcp
   ```
 
-  A different alias works too, but Claude will ask permission for the Notion tools on each run because the skill's pre-approved tool names use the `notion` prefix.
+  A different alias works too. Set `JOURNAL_MCP_SERVER` in the config file to its name. Claude may then ask permission for the Notion tools on first use, because the skill's pre-approved tool names use the `notion` prefix; allow them once or add them to your permission rules.
 
 ## Setup
 
@@ -69,6 +69,7 @@ PROJ-7003 · PR 5670 · `proj-7003-import-selection`
 All customization goes in the config file, so plugin updates never overwrite it.
 
 ```sh
+JOURNAL_MCP_SERVER="notion_personal"                    # if your Notion server is not aliased notion
 JOURNAL_HEMISPHERE="south"                             # shifts the seasons by six months
 JOURNAL_COLORS="blue_bg green_bg yellow_bg orange_bg"  # winter spring summer autumn
 JOURNAL_ICONS="🌙 ⚔️ 🪶 ⚡ 🌸 🪐 ☀️"                    # Monday through Sunday
