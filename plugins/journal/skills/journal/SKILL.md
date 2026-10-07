@@ -58,7 +58,7 @@ Rules:
   <when>Step 1 found today's page</when>
 
   <on-yes>
-    Append with `notion-update-page`: `command: "insert_content"`, `position: {"type": "end"}`, `allow_async: false`, and `content` = `\n<empty-block/>\n` + the new callout. A successful response is the verification; do not fetch again.
+    Append with `notion-update-page`: `command: "insert_content"`, `position: {"type": "end"}`, `allow_async: false`, and `content` = `\n<empty-block/>\n` + the new callout, or the callout alone when the fetched body is empty (a page from `/journal:start-day`). A successful response is the verification; do not fetch again.
     IMPORTANT: Never use `replace_content` (it rewrites the entire body and corrupts embedded images) or `update_content` (its string search fails on backticks).
   </on-yes>
 
@@ -93,5 +93,5 @@ Rules:
 
 <hard-rules>
   <rule>IMPORTANT: Never write callouts into monthly pages.</rule>
-  <rule>Never create a daily page with empty content.</rule>
+  <rule>Never create a daily page with empty content; an empty day page is `/journal:start-day`'s job.</rule>
 </hard-rules>

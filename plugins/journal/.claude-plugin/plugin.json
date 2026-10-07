@@ -1,6 +1,6 @@
 {
   "name": "journal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Append a glanceable session summary to a Notion work journal. One callout per topic with a headline, metadata line, and fact bullets. Callout color follows the season and icon follows the weekday.",
   "author": {
     "name": "Christine Seeman",

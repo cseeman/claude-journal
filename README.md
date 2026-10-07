@@ -81,6 +81,7 @@ Colors are Notion callout backgrounds: `gray_bg`, `brown_bg`, `orange_bg`, `yell
 
 - `/journal` composes the entry from the session.
 - `/journal <text>` uses your text as the bullets and still composes the headline and metadata line.
+- `/journal:start-day` creates today's page with its properties set and nothing in the body, ready for your own notes. If the page exists, it fixes wrong `Tags` or `Start Date` and leaves the body alone.
 
 ## How it works
 
