@@ -15,8 +15,19 @@ MSG
   exit 0
 fi
 
+# These lists rely on word splitting, but a * in one must stay literal.
+set -f
 colors=(${JOURNAL_COLORS:-blue_bg green_bg yellow_bg orange_bg})
 icons=(${JOURNAL_ICONS:-🌙 ⚔️ 🪶 ⚡ 🌸 🪐 ☀️})
+set +f
+
+if [ "${#colors[@]}" -ne 4 ] || [ "${#icons[@]}" -ne 7 ]; then
+  cat <<MSG
+- NOT CONFIGURED. In $config, JOURNAL_COLORS needs 4 values (found ${#colors[@]})
+  and JOURNAL_ICONS needs 7 values (found ${#icons[@]}). See the plugin README.
+MSG
+  exit 0
+fi
 
 month=$((10#$(date +%m)))
 [ "${JOURNAL_HEMISPHERE:-north}" = "south" ] && month=$(( (month + 5) % 12 + 1 ))

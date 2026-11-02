@@ -75,6 +75,8 @@ JOURNAL_COLORS="blue_bg green_bg yellow_bg orange_bg"  # winter spring summer au
 JOURNAL_ICONS="🌙 ⚔️ 🪶 ⚡ 🌸 🪐 ☀️"                    # Monday through Sunday
 ```
 
+`JOURNAL_COLORS` needs exactly four values and `JOURNAL_ICONS` exactly seven; anything else stops the skill with a message naming the count.
+
 Colors are Notion callout backgrounds: `gray_bg`, `brown_bg`, `orange_bg`, `yellow_bg`, `green_bg`, `blue_bg`, `purple_bg`, `pink_bg`, `red_bg`.
 
 ## Usage
@@ -88,6 +90,12 @@ Colors are Notion callout backgrounds: `gray_bg`, `brown_bg`, `orange_bg`, `yell
 `today.sh` runs before the skill loads and injects the date, month label, icon, color, and data source id, so the model never computes any of them. The skill then makes three Notion calls on a normal day: search, fetch today's page, append. Creating a new daily page adds one verification fetch.
 
 The skill follows the Agent Skills open standard, but the dynamic-context injection and pre-approved tools are Claude Code features. To use the SKILL.md with another tool, run `today.sh` yourself and paste its output in place of the Today block.
+
+## Tests
+
+```
+bash test/today_test.sh
+```
 
 ## License
 
