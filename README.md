@@ -1,6 +1,6 @@
 # claude-journal
 
-A Claude Code plugin that appends a short, glanceable summary of the current session to a work journal in Notion. Run `/journal` between working sessions and move on.
+A Claude Code plugin that appends a short, glanceable summary of the current session to a work journal in Notion. Run `/journal:journal` between working sessions and move on.
 
 Each entry is one callout per topic: a bold headline stating the outcome, a metadata line linking every ticket, PR, and branch touched, and up to four one-sentence facts. Follow-ups get their own `Next:` or `Open:` bullet so tomorrow's scan finds them.
 
@@ -62,7 +62,7 @@ PROJ-7003 · PR 5670 · `proj-7003-import-selection`
    JOURNAL_DATA_SOURCE_ID="<uuid>"
    ```
 
-5. Run `/journal` at the end of a session. The first run in a month also creates a monthly index page with a filtered view of that month's daily pages.
+5. Run `/journal:journal` at the end of a session. The first run in a month also creates a monthly index page with a filtered view of that month's daily pages.
 
 ## Customizing
 
@@ -81,8 +81,8 @@ Colors are Notion callout backgrounds: `gray_bg`, `brown_bg`, `orange_bg`, `yell
 
 ## Usage
 
-- `/journal` composes the entry from the session.
-- `/journal <text>` uses your text as the bullets and still composes the headline and metadata line.
+- `/journal:journal` composes the entry from the session.
+- `/journal:journal <text>` uses your text as the bullets and still composes the headline and metadata line.
 - `/journal:start-day` creates today's page with its properties set and nothing in the body, ready for your own notes. If the page exists, it fixes wrong `Tags` or `Start Date` and leaves the body alone.
 
 ## How it works
