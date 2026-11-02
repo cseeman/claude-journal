@@ -3,7 +3,7 @@ name: journal
 description: Record this session's work as an entry in my Notion work journal. Use when wrapping up a Claude Code session or logging work. Not for other Notion edits.
 argument-hint: "[entry text (optional)]"
 disable-model-invocation: true
-allowed-tools: mcp__notion__notion-search, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view
+allowed-tools: mcp__notion__notion-search, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, Read
 ---
 
 ## Today
@@ -45,7 +45,7 @@ Rules:
 ## Steps
 
 **1. Search.** Two `notion-search` calls in parallel, each with `data_source_url` = the data source URL form, matching exact title equality only:
-- `query` = month label. If no monthly index page exists, create one (see "Creating a monthly index page" below).
+- `query` = month label. If no monthly index page exists, read `${CLAUDE_SKILL_DIR}/monthly-index.md` and follow "Create".
 - `query` = ISO date, for today's daily page.
 
 **2. Fetch today's page** with `notion-fetch` if step 1 found it. Once only.
@@ -75,22 +75,6 @@ Rules:
 **5. Verify a new page only.** Fetch it via `notion-fetch` and confirm the callout is present, the page icon is the callout icon, and `Start Date` equals today's ISO date. Correct any mismatch before reporting.
 
 **6. Confirm.** Report the headline(s) written and the page URL.
-
-## Creating a monthly index page
-
-**A.** `notion-create-pages` with `parent` = the data source, `Name` = month label, `Tags` = `'["Work","Monthly"]'`, `allow_async` = `false`, and `content`:
-```
-<table_of_contents color="gray"/>
-# Daily Entries
-<empty-block/>
-```
-
-**B.** `notion-create-view` to place a linked view on the new page:
-- `parent_page_id`: the page id returned by step A
-- `data_source_id`: the data source
-- `name`: `<MonthName> <YYYY> Daily Entries`
-- `type`: `"table"`
-- `configure`: `FILTER "Tags" CONTAINS "Daily" AND "Start Date" >= "YYYY-MM-01" AND "Start Date" <= "YYYY-MM-LAST"; SORT BY "Start Date" DESC`
 
 <hard-rules>
   <rule>IMPORTANT: Never write callouts into monthly pages.</rule>
