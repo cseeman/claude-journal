@@ -2,7 +2,7 @@
 name: start-day
 description: Create today's empty page in my Notion work journal with the right properties, ready for notes. Use at the start of a work day. Not for logging session work (use /journal).
 disable-model-invocation: true
-allowed-tools: mcp__notion__notion-search, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, Read
+allowed-tools: mcp__notion__notion-query-data-sources, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, Read
 ---
 
 ## Today
@@ -25,9 +25,21 @@ Do not infer any of these values from memory. If the block above says NOT CONFIG
 
 ## Steps
 
-**1. Search.** Two `notion-search` calls in parallel, each with `data_source_url` = the data source URL form, matching exact title equality only:
-- `query` = month label. If no monthly index page exists, read `${CLAUDE_SKILL_DIR}/../journal/monthly-index.md` and follow "Create".
-- `query` = ISO date, for today's daily page.
+**1. Look up both pages.** Make one `notion-query-data-sources` call in `rows` mode, which matches titles exactly. Never use `notion-search` for this; it ranks by relevance and can miss a page that exists.
+```json
+{"data": {"mode": "rows", "data_source_url": "collection://<data source id>", "limit": 5, "filter": {"type": "group", "operator": "or", "filters": [
+  {"type": "property", "property": "Name", "propertyType": "title", "operator": "string_is", "value": {"type": "exact", "value": "<month label>"}},
+  {"type": "property", "property": "Name", "propertyType": "title", "operator": "string_is", "value": {"type": "exact", "value": "<ISO date>"}}
+]}}}
+```
+The row named the ISO date is today's page. The row named the month label is the monthly index.
+
+<condition>
+  <when>The query fails</when>
+  <on-yes>Stop and report the error. Create nothing, because an unknown result can duplicate a page.</on-yes>
+</condition>
+
+- No monthly row: read `${CLAUDE_SKILL_DIR}/../journal/monthly-index.md` and follow "Create".
 
 <condition>
   <when>Step 1 found today's page</when>

@@ -87,7 +87,7 @@ Colors are Notion callout backgrounds: `gray_bg`, `brown_bg`, `orange_bg`, `yell
 
 ## How it works
 
-`today.sh` runs before the skill loads and injects the date, month label, icon, color, and data source id, so the model never computes any of them. The skill then makes three Notion calls on a normal day: search, fetch today's page, append. Creating a new daily page adds one verification fetch.
+`today.sh` runs before the skill loads and injects the date, month label, icon, color, and data source id, so the model never computes any of them. The skill then makes three Notion calls on a normal day: an exact-title lookup, a fetch of today's page, and an append. Creating a new daily page adds one verification fetch.
 
 The skill follows the Agent Skills open standard, but the dynamic-context injection and pre-approved tools are Claude Code features. To use the SKILL.md with another tool, run `today.sh` yourself and paste its output in place of the Today block.
 
