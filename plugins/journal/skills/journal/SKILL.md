@@ -3,7 +3,7 @@ name: journal
 description: Record this session's work as an entry in my Notion work journal. Use when wrapping up a Claude Code session or logging work. Not for other Notion edits.
 argument-hint: "[entry text (optional)]"
 disable-model-invocation: true
-allowed-tools: mcp__notion__notion-query-data-sources, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, Read
+allowed-tools: mcp__notion__notion-query-data-sources, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, mcp__notion_personal__notion-query-data-sources, mcp__notion_personal__notion-fetch, mcp__notion_personal__notion-create-pages, mcp__notion_personal__notion-update-page, mcp__notion_personal__notion-create-view, Read
 ---
 
 ## Today

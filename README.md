@@ -35,7 +35,7 @@ PROJ-7003 · PR 5670 · `proj-7003-import-selection`
   claude mcp add --transport http notion https://mcp.notion.com/mcp
   ```
 
-  A different alias works too. Set `JOURNAL_MCP_SERVER` in the config file to its name. Claude may then ask permission for the Notion tools on first use, because the skill's pre-approved tool names use the `notion` prefix; allow them once or add them to your permission rules.
+  A different alias works too. Set `JOURNAL_MCP_SERVER` in the config file to its name. Claude may then ask permission for the Notion tools on first use, because the skills pre-approve only the aliases `notion` and `notion_personal`; allow them once or add them to your permission rules.
 
 ## Setup
 

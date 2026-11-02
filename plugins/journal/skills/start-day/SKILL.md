@@ -2,7 +2,7 @@
 name: start-day
 description: Create today's empty page in my Notion work journal with the right properties, ready for notes. Use at the start of a work day. Not for logging session work (use /journal).
 disable-model-invocation: true
-allowed-tools: mcp__notion__notion-query-data-sources, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, Read
+allowed-tools: mcp__notion__notion-query-data-sources, mcp__notion__notion-fetch, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-create-view, mcp__notion_personal__notion-query-data-sources, mcp__notion_personal__notion-fetch, mcp__notion_personal__notion-create-pages, mcp__notion_personal__notion-update-page, mcp__notion_personal__notion-create-view, Read
 ---
 
 ## Today
