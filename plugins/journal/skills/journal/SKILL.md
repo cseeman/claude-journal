@@ -78,7 +78,7 @@ The row named the ISO date is today's page. The row named the month label is the
   <on-no>
     Create with `notion-create-pages`:
     - `parent`: `{"type": "data_source_id", "data_source_id": "<the data source id>"}`
-    - `properties`: `Name` = ISO date, `Tags` = `'["Work","Daily"]'`, `date:Start Date:start` = ISO date, `date:Start Date:is_datetime` = `0`
+    - `properties`: `Name` = ISO date, `Tags` = `["Work","Daily"]`, `date:Start Date:start` = ISO date, `date:Start Date:is_datetime` = `0`
     - `icon`: the callout icon
     - `content`: the callout block
     - `allow_async`: `false`

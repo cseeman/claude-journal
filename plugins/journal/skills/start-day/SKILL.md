@@ -19,7 +19,7 @@ Do not infer any of these values from memory. If the block above says NOT CONFIG
 ## Correct daily page properties
 
 - `Name` = ISO date
-- `Tags` = `'["Work","Daily"]'`
+- `Tags` = `["Work","Daily"]`
 - `date:Start Date:start` = ISO date
 - `date:Start Date:is_datetime` = `0`
 
