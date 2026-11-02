@@ -22,4 +22,4 @@ Read this only when the lookup calls for it. "The data source" is the id from th
 - `type`: `"table"`
 - `configure`: `FILTER "Tags" CONTAINS "Daily" AND "Start Date" >= "YYYY-MM-01" AND "Start Date" <= "YYYY-MM-LAST"; SORT BY "Start Date" DESC`
 
-If this call fails, report it with the monthly page URL and continue.
+If this call fails, report it with the monthly page URL and continue. The next day's first run retries it.

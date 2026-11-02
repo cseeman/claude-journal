@@ -59,6 +59,7 @@ The row named the ISO date is today's page. The row named the month label is the
 </condition>
 
 - No monthly row: read `${CLAUDE_SKILL_DIR}/monthly-index.md` and follow "Create".
+- Monthly row but no row for today: fetch the monthly page with `notion-fetch`. If its body has no `<database` tag, read `${CLAUDE_SKILL_DIR}/monthly-index.md` and follow "Add the view".
 
 **2. Fetch today's page** with `notion-fetch` if step 1 found it. Once only.
 
