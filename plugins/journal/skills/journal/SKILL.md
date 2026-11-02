@@ -58,7 +58,7 @@ Rules:
   <when>Step 1 found today's page</when>
 
   <on-yes>
-    Append with `notion-update-page`: `command: "insert_content"`, `position: {"type": "end"}`, `allow_async: false`, and `content` = `\n<empty-block/>\n` + the new callout, or the callout alone when the fetched body is empty (a page from `/journal:start-day`). A successful response is the verification; do not fetch again.
+    Append with `notion-update-page`: `command: "insert_content"`, `position: {"type": "end"}`, `allow_async: false`, and `content` = `\n<empty-block/>\n` + the new callout, or the callout alone when the fetched body is empty (a page from `/journal:start-day`). If the fetched page has no icon, also pass `icon` = the callout icon. A successful response is the verification; do not fetch again.
     IMPORTANT: Never use `replace_content` (it rewrites the entire body and corrupts embedded images) or `update_content` (its string search fails on backticks).
   </on-yes>
 
@@ -66,12 +66,13 @@ Rules:
     Create with `notion-create-pages`:
     - `parent`: `{"type": "data_source_id", "data_source_id": "<the data source id>"}`
     - `properties`: `Name` = ISO date, `Tags` = `'["Work","Daily"]'`, `date:Start Date:start` = ISO date, `date:Start Date:is_datetime` = `0`
+    - `icon`: the callout icon
     - `content`: the callout block
     - `allow_async`: `false`
   </on-no>
 </condition>
 
-**5. Verify a new page only.** Fetch it via `notion-fetch` and confirm the callout is present and `Start Date` equals today's ISO date. Correct either before reporting.
+**5. Verify a new page only.** Fetch it via `notion-fetch` and confirm the callout is present, the page icon is the callout icon, and `Start Date` equals today's ISO date. Correct any mismatch before reporting.
 
 **6. Confirm.** Report the headline(s) written and the page URL.
 

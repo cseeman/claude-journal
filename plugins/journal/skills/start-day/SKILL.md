@@ -33,17 +33,18 @@ Do not infer any of these values from memory. If the block above says NOT CONFIG
   <when>Step 1 found today's page</when>
 
   <on-yes>
-    Fetch it with `notion-fetch`. If `Tags` or `Start Date` differ from the correct properties above, fix them with `notion-update-page` `command: "update_properties"`, setting all four. Never touch the page body. Report "already started" with the page URL and any property corrected.
+    Fetch it with `notion-fetch`. If `Tags` or `Start Date` differ from the correct properties above, fix them with `notion-update-page` `command: "update_properties"`, setting all four. If the page has no icon, set `icon` = the callout icon, in the same call when properties also need fixing. Never touch the page body. Report "already started" with the page URL and any property corrected.
   </on-yes>
 
   <on-no>
     Create with `notion-create-pages`:
     - `parent`: `{"type": "data_source_id", "data_source_id": "<the data source id>"}`
     - `properties`: the correct daily page properties above
+    - `icon`: the callout icon
     - no `content`
     - `allow_async`: `false`
 
-    Fetch the new page and confirm `Name`, `Tags`, and `Start Date` match. Correct any that do not, then report the page URL.
+    Fetch the new page and confirm `Name`, `Tags`, `Start Date`, and the page icon match. Correct any that do not, then report the page URL.
   </on-no>
 </condition>
 

@@ -4,7 +4,7 @@ A Claude Code plugin that appends a short, glanceable summary of the current ses
 
 Each entry is one callout per topic: a bold headline stating the outcome, a metadata line linking every ticket, PR, and branch touched, and up to four one-sentence facts. Follow-ups get their own `Next:` or `Open:` bullet so tomorrow's scan finds them.
 
-The callout color follows the season and the icon follows the weekday, so a month of entries reads as a calendar at a glance.
+The callout color follows the season and the icon follows the weekday, so a month of entries reads as a calendar at a glance. The daily page gets the same weekday icon, so the database view shows it too.
 
 | Season | Color  |   | Weekday   | Icon |
 |--------|--------|---|-----------|------|
